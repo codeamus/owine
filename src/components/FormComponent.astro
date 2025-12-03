@@ -1,0 +1,188 @@
+---
+import { STATES } from "../const/states";
+---
+
+<div
+  class="w-full max-w-[630px] md:max-w-full md:w-[745px] md:h-[645px] lg:w-[680px] lg:h-[590px] px-2 py-2 mt-4 flex flex-col rounded-2xl md:rounded-none md:justify-center md:items-center"
+>
+  <form
+    class="flex flex-col justify-center items-center w-full px-3 py-6 lg:bg-transparent rounded-2xl md:rounded-none"
+    id="formOwine"
+  >
+    <!-- Name -->
+    <input
+      class="w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white js-field"
+      type="text"
+      placeholder="Name*"
+      id="name"
+      name="name"
+      data-required="true"
+    />
+
+    <!-- Last name -->
+    <input
+      class="w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white js-field"
+      type="text"
+      placeholder="Last name*"
+      id="lastName"
+      name="lastName"
+      data-required="true"
+    />
+
+    <!-- Email -->
+    <input
+      class="w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white js-field"
+      type="email"
+      placeholder="Email*"
+      id="email"
+      name="email"
+      data-required="true"
+      data-email="true"
+    />
+
+    <!-- Instagram -->
+    <input
+      class="w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[24px] font-normal placeholder:font-normal border-[2px] border-white js-field"
+      type="text"
+      placeholder="Instagram username (Public account)*"
+      id="instagram"
+      name="instagram"
+      data-required="true"
+    />
+
+    <!-- State -->
+    <select
+      class="w-full rounded-lg mb-2 text-[13px] px-[13px] text-[#C3C3C3] appearance-none form-select h-[28px] border-[2px] border-white js-field"
+      id="state"
+      name="state"
+      data-required="true"
+    >
+      <option value="">State*</option>
+      {
+        STATES.map((state, index) => (
+          <option value={state.value} key={index}>
+            {state.label}
+          </option>
+        ))
+      }
+    </select>
+
+    <!-- Story -->
+    <textarea
+      class="w-full rounded-lg mb-2 p-[13px] text-[13px] placeholder-[#C3C3C3] h-[150px] font-normal placeholder:font-normal border-[2px] border-white js-field"
+      placeholder="Tell us an amazing story to inspire Ami James*"
+      id="message"
+      name="message"
+      data-required="true"></textarea>
+
+    <!-- Terms -->
+    <div
+      class="flex items-center bg-white p-[13px] rounded-lg w-full justify-between gap-3"
+    >
+      <p class="text-[13px] text-[#4d4d4d] max-w-sm">
+        You agree that the tattoo session will be done in the state of Florida,
+        USA, no later than December 2025. The session may be recorded,
+        photographed, and used as marketing material for Ö-61 Wines on digital
+        platforms.
+      </p>
+      <select
+        class="mb-2 text-[13px] w-[140px] px-2 text-[#C3C3C3] border-[#4d4d4d] border form-select-terms appearance-none js-field"
+        id="terms"
+        name="terms"
+        data-required="true"
+      >
+        <option value="">Choose an option</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+
+    <!-- Botón -->
+    <div
+      class="flex lg:flex-row flex-col lg:justify-between justify-center items-center w-full mt-4 gap-4"
+    >
+      <button
+        type="submit"
+        class="text-white bg-[url(/assets/bg-boton-form.png)] bg-cover bg-no-repeat font-cheddar text-[42px] w-full max-w-[205px] px-10 py-1 duration-300 transition-colors hover:text-black disabled:opacity-60 disabled:cursor-not-allowed"
+        data-submit
+      >
+        Send
+      </button>
+    </div>
+
+    <p
+      class="text-red-500 text-xs mt-3 min-h-[1rem] text-center"
+      id="form-error"
+      aria-live="polite"
+    >
+    </p>
+  </form>
+
+  <!-- Lógica del formulario -->
+  <script type="module">
+    const form = document.getElementById("formOwine");
+    const submitBtn = form?.querySelector("[data-submit]");
+    const errorBox = document.getElementById("form-error");
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function setFieldError(el, hasError) {
+      if (!el) return;
+      el.classList.remove("border-white", "border-red-500", "!border-red-500");
+      if (hasError) {
+        el.classList.add("border-red-500");
+      } else {
+        el.classList.add("border-white");
+      }
+    }
+
+    function validateForm() {
+      let isValid = true;
+      errorBox.textContent = "";
+
+      const fields = form.querySelectorAll(".js-field");
+      fields.forEach((field) => {
+        const required = field.dataset.required === "true";
+        const isEmail = field.dataset.email === "true";
+        let value = field.value?.trim?.() ?? "";
+        let fieldError = false;
+
+        if (required && !value) {
+          fieldError = true;
+        }
+        if (!fieldError && isEmail && !emailRegex.test(value)) {
+          fieldError = true;
+        }
+
+        setFieldError(field, fieldError);
+        if (fieldError) isValid = false;
+      });
+
+      if (!isValid) {
+        errorBox.textContent = "Please complete all required fields correctly.";
+      }
+
+      return isValid;
+    }
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      if (!form || !submitBtn) return;
+
+      if (!validateForm()) return;
+      if (validateForm()) {
+        window.location.href = "/congrats";
+      }
+    }
+
+    if (form) {
+      form.addEventListener("submit", handleSubmit);
+
+      // Limpia borde rojo al escribir / cambiar
+      form.querySelectorAll(".js-field").forEach((field) => {
+        field.addEventListener("input", () => setFieldError(field, false));
+        field.addEventListener("change", () => setFieldError(field, false));
+      });
+    }
+  </script>
+</div>
