@@ -59,8 +59,8 @@ import { STATES } from "../const/states";
     >
       <option value="">State*</option>
       {
-        STATES.map((state, index) => (
-          <option value={state.value} key={index}>
+        STATES.map((state) => (
+          <option value={state.value}>
             {state.label}
           </option>
         ))
