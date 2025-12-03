@@ -1,106 +1,111 @@
-<img src="https://raw.githubusercontent.com/amus-dev/owine/main/src/assets/logos/footer-logo.webp" alt="
-     Logo Owine" width="300" /><br>
-_Landing de campaña para Ö-61_
+# <img src="https://raw.githubusercontent.com/amus-dev/owine/main/src/assets/logos/footer-logo.webp" alt="Logo Ö-61" width="260" />
 
-## Comenzando 🙌🏻
+# Ö-61 — Landing de Campaña · Formulario de Participación
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+Landing page desarrollada para la marca **Ö-61 (Estados Unidos)**.  
+El objetivo de esta campaña es **captar usuarios**, registrar su información en una base de datos externa del cliente y participar en un **sorteo para ganar una sesión de tatuaje con Ami James**.
 
-### Instalación 🔧
+---
 
-_Debe instalar todas las dependencias del proyecto con su gestor de paquetes favorito_
+## 🚀 Tecnologías Utilizadas
 
-- npm
+- **Astro** — Framework para sitios rápidos, estáticos y orientados al contenido  
+- **Tailwind CSS** — Estilos utilitarios para una maquetación consistente y escalable  
 
-```bash
-npm install
-```
+No se utilizan variables de entorno ni frameworks adicionales.
 
-- pnpm
+---
 
+## 🛠️ Instalación
+
+Clona el repositorio e instala las dependencias con tu gestor favorito:
+
+### Usando PNPM
 ```bash
 pnpm install
 ```
 
-## Ambientar proyecto local 💻
-
-_Para levantar el proyecto de manera local debe realizar lo siguiente_
-_Se debe crear un archivo llamado .env en la raiz del proyecto (folder src)_
-
-_Agregar esta variable, la cual debe apuntar a la URL de desarrollo alojada en simplicity_
-
+### Usando NPM
 ```bash
-BASE_URL="https://simplicity.cl/owine"
+npm install
 ```
 
-_Agregar esta variable, la cual es la KEY del Recaptcha Google_
+---
 
-```bash
-PUBLIC_VITE_SITE_RECAPTCHA_KEY="KEY_RECAPTCHA"
-```
+## 💻 Ambiente de Desarrollo
 
-_Para obtener esta key se debe crear en la página de administrador de Google, debe ser la versión v2 del Recaptcha_
+Inicia el entorno de desarrollo local:
 
-- [Crear aquí](https://www.google.com/recaptcha/admin/create)
-- [Documentación](https://developers.google.com/recaptcha/intro?hl=es-419)
-
-## Levantar proyecto local ⚙️
-
-_Para levantar el proyecto local debe correr el comando con su gestor de paquetes favorito_
-
-- npm
-
-```bash
-npm run dev
-```
-
-- pnpm
-
+### PNPM
 ```bash
 pnpm run dev
 ```
 
-## Despliegue Producción 🚀
-
-_Para desplegar la APP en producción debe crear un archivo .env.production en la raiz del proyecto (folder /src)_
-
-_Agregar esta variable, la cual debe apuntar a la URL de producción alojada en simplicity_
-
+### NPM
 ```bash
-BASE_URL="Dominio de producción"
+npm run dev
 ```
 
-_Agregar esta variable, la cual es la KEY del Recaptcha Google_
+El proyecto estará disponible en:
 
-```bash
-PUBLIC_VITE_SITE_RECAPTCHA_KEY="KEY_RECAPTCHA"
+```
+http://localhost:4321
 ```
 
-_Empaquetar app para desplegar en servidor_
+---
+
+## 📦 Build para Producción
+
+Para generar la versión optimizada:
 
 ```bash
 pnpm run build
 ```
 
-## Visualizar sitio en Desarrollo 👀
+Esto creará la carpeta `dist/` lista para subir al servidor del cliente.
 
-_Para visualizar el sitio en ambiente desarrollo se ingresa en la siguiente URL_
+---
 
-- [Owine - Dev](https://simplicity.cl/owine)
+## 🎯 Objetivo del Proyecto
 
-## Visualizar sitio en Producción 👀
+Este sitio cumple una única función:
 
-_Para visualizar el sitio en producción se ingresa en la siguiente URL_
+### ➤ *Recibir información de los usuarios para participar en un sorteo oficial de Ö-61.*
 
-- [Owine - Prod](https://sessions.o61wine.com)
+Los datos enviados a través del formulario se almacenan en la infraestructura del cliente (Estados Unidos).  
+Posteriormente, Ö-61 utilizará esta información para:
 
-## Construido con 🛠️
+- Sorteo de una sesión de tatuaje gratuita  
+- Acciones promocionales de marca  
+- Contacto con el ganador de la campaña  
 
-_La estructura del proyecto esta creado con Atomic Design y las herramientas utilizadas son:_
+---
 
-- [Astro](https://docs.astro.build/en/getting-started/)
-- [Tailwind](https://tailwindcss.com/)
+## 👀 URLs del Proyecto
 
-## Autores 🙎🏻‍♂️
+- **Producción** → https://sessions.o61wine.com  
+- **Desarrollo (Simplicity)** → https://simplicity.cl/owine  
 
-- **Alexander Urrutia** - [codeamus](https://github.com/mts4)
+---
+
+## 📂 Arquitectura del Proyecto
+
+El proyecto está ordenado con una estructura simple y clara:
+
+```
+src/
+ ├── assets/       → Imágenes, logos, fuentes y PDFs
+ ├── components/   → Componentes .astro reutilizables
+ ├── const/        → Datos estáticos (ej: estados)
+ ├── layouts/      → Layout base del sitio
+ ├── pages/        → Páginas principales (index, form, congrats)
+ └── utils/        → Validaciones y utilidades
+```
+
+---
+
+## 👤 Autor
+
+**Alexander Urrutia**  
+GitHub: https://github.com/mts4  
+Portafolio: https://www.codeamus.dev/
