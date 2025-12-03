@@ -84,7 +84,7 @@ Posteriormente, Ö-61 utilizará esta información para:
 ## 👀 URLs del Proyecto
 
 - **Producción** → https://sessions.o61wine.com  
-- **Desarrollo (Simplicity)** → https://simplicity.cl/owine  
+- **Desarrollo** → https://owine.vercel.app/ 
 
 ---
 
