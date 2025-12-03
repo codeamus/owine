@@ -1,9 +1,9 @@
 ---
-import Wines from "@assets/images/bottles_wine.png";
-import ImageLogo from "@assets/logos/home-logo.webp";
-import Footer from "@components/Footer.astro";
-import Layout from "@layouts/Layout.astro";
+import Wines from "../assets/images/bottles_wine.png";
+import ImageLogo from "../assets/logos/home-logo.webp";
 import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout
@@ -12,7 +12,7 @@ import { Image } from "astro:assets";
 >
   <main class="animate-fade-in animate-delay-400 animate-duration-800">
     <div
-      class="relative overflow-hidden 2xl:h-[92vh] w-full bg-[url(/owine/assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center py-20 md:py-[74px] flex-col px-6"
+      class="relative overflow-hidden 2xl:h-[92vh] w-full bg-[url(/assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center py-20 md:py-[74px] flex-col px-6"
     >
       <Image
         class="w-full max-w-[200px]"
@@ -30,17 +30,17 @@ import { Image } from "astro:assets";
 
       <div class="flex gap-10 justify-center items-center mb-10 md:mb-16">
         <div
-          class="bg-[url('/owine/assets/border-btn-yes.png')] bg-cover bg-center bg-no-repeat w-[125px] h-[64px] flex justify-center items-center"
+          class="bg-[url('/assets/border-btn-yes.png')] bg-cover bg-center bg-no-repeat w-[125px] h-[64px] flex justify-center items-center"
         >
           <a
             id="btnYes"
-            href={`${import.meta.env.BASE_URL}/form`}
+            href="/form"
             class="font-cheddar text-white text-[32px] bg-black duration-300 transition-colors hover:text-[#edd78b]"
             >Yes</a
           >
         </div>
         <div
-          class="bg-[url('/owine/assets/border-btn-yes.png')] bg-cover bg-center bg-no-repeat w-[125px] h-[64px] flex justify-center items-center"
+          class="bg-[url('/assets/border-btn-yes.png')] bg-cover bg-center bg-no-repeat w-[125px] h-[64px] flex justify-center items-center"
         >
           <a
             id="btnYes"

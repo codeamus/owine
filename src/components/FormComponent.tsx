@@ -2,10 +2,10 @@ import { navigate } from "astro:transitions/client";
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import toast, { Toaster } from "react-hot-toast";
-import { STATES } from "@const/states";
-import { validateEmail } from "@utils/formats";
+import { validateEmail } from "../utils/formats";
+import { STATES } from "../const/states";
 
-const Form = () => {
+const FormComponent = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -189,4 +189,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormComponent;

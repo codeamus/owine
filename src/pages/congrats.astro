@@ -1,10 +1,10 @@
 ---
-import Wines from "@assets/images/bottles_wine.png";
-import IconCheck from "@assets/images/icon-check.png";
-import ImageLogo from "@assets/logos/form-logo.webp";
-import Footer from "@components/Footer.astro";
-import Layout from "@layouts/Layout.astro";
+import Wines from "../assets/images/bottles_wine.png";
+import IconCheck from "../assets/images/icon-check.png";
+import ImageLogo from "../assets/logos/form-logo.webp";
 import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout
@@ -13,7 +13,7 @@ import { Image } from "astro:assets";
 >
   <main class="animate-fade-in animate-delay-100 animate-duration-600">
     <div
-      class="relative overflow-hidden 2xl:h-[92vh] w-full bg-[url(/owine/assets/thanks-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center py-20 md:py-[74px] flex-col px-6"
+      class="relative overflow-hidden 2xl:h-[92vh] w-full bg-[url(/assets/thanks-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center py-20 md:py-[74px] flex-col px-6"
     >
       <Image
         class="w-[320px]"

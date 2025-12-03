@@ -1,9 +1,9 @@
 ---
-import ImageLogo from "@assets/logos/form-logo.webp";
-import Footer from "@components/Footer.astro";
-import FormComponent from "@components/Form.tsx";
-import Layout from "@layouts/Layout.astro";
+import ImageLogo from "../assets/logos/form-logo.webp";
 import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import FormComponent from "../components/FormComponent";
 ---
 
 <Layout
@@ -12,7 +12,7 @@ import { Image } from "astro:assets";
 >
   <main>
     <section
-      class="relative bg-[url(/owine/assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center py-[40px] flex-col px-6 lg:h-fit"
+      class="relative bg-[url(/assets/home-bg.webp)] bg-no-repeat bg-cover bg-center flex items-center py-[40px] flex-col px-6 lg:h-fit"
     >
       <Image
         class="w-[330px]"
